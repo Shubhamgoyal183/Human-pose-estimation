@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pose Estimation - AI Yoga & Fitness</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> -->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">PoseAI</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#demo">Demo</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#use-cases">Use Cases</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>AI-Powered Pose Estimation for Yoga & Fitness</h1>
+            <p>Improve your posture, track your exercises, and perfect your yoga poses with real-time AI analysis.</p>
+            <a href="#demo" class="cta-button">Try Now</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2>Features</h2>
+        <div class="feature-grid">
+            <div class="feature-item">✅ Real-time Pose Detection</div>
+            <div class="feature-item">✅ Supports Multiple Yoga Asanas</div>
+            <div class="feature-item">✅ Works with Webcam & Image Upload</div>
+            <div class="feature-item">✅ AI-powered Accuracy</div>
+            <div class="feature-item">✅ Accessible on Any Device</div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <h2>Live Demo</h2>
+        <p>Try our real-time pose estimation. Start your camera or upload an image.</p>
+        <!-- <button class="demo-button" onclick="startCamera()">Start Camera</button>
+        <video id="video" autoplay></video> -->
+        <button onclick="startCamera()">Start Camera</button>
+    <button onclick="stopCamera()">End Camera</button>
+    <br><br>
+    <img id="videoFrame" width="640" height="480">
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <p>1️⃣ Capture image/video from webcam.</p>
+            <p>2️⃣ OpenCV & AI analyze the pose.</p>
+            <p>3️⃣ Match with predefined yoga positions.</p>
+            <p>4️⃣ Get real-time feedback.</p>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section id="use-cases" class="use-cases">
+        <h2>Use Cases</h2>
+        <p>Perfect for Yoga, Fitness Tracking, Physical Therapy, and Posture Correction.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    <script>
+        document.getElementById("videoFrame").style.display = "none";
+        function startCamera() {
+            document.getElementById("videoFrame").style.display = "block";
+            document.getElementById('videoFrame').src = '/video_feed';
+        }
+        function stopCamera() {
+            document.getElementById('videoFrame').src = '';
+            document.getElementById("videoFrame").style.display = "none";
+        }
+    </script>
+</body>
+</html>
